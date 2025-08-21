@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Clases particulares de literatura en Buenos Aires. Profesor especializado en narrativa, poesía y análisis literario. Preparación para exámenes y apoyo escolar.">
+    <meta name="keywords" content="clases particulares literatura, profesor literatura Buenos Aires, apoyo escolar literatura, análisis literario, preparación exámenes literatura">
+    <meta name="author" content="Clases Particulares de Literatura">
+    <meta property="og:title" content="Clases Particulares de Literatura - Buenos Aires">
+    <meta property="og:description" content="Profesor especializado en literatura ofrece clases particulares en Buenos Aires. Mejora tu comprensión y análisis literario.">
+    <meta property="og:type" content="website">
+    <title>Clases Particulares de Literatura - Buenos Aires | Profesor Especializado</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2d3748;
+            --accent-color: #3182ce;
+            --gold-accent: #d69e2e;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --bg-light: #f7fafc;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .serif {
+            font-family: 'Crimson Text', serif;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .contact-btn {
+            background: var(--accent-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-btn:hover {
+            background: #2c5282;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Mobile menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: slideInLeft 1s ease-out 0.3s forwards;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            opacity: 0;
+            animation: slideInLeft 1s ease-out 0.6s forwards;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: slideInLeft 1s ease-out 0.9s forwards;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold-accent);
+            display: block;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            opacity: 0;
+            animation: slideInLeft 1s ease-out 1.2s forwards;
+        }
+
+        .btn-primary {
+            background: var(--gold-accent);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            background: #b7791f;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-image {
+            position: relative;
+            opacity: 0;
+            animation: slideInRight 1s ease-out 0.6s forwards;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-card .icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold-accent);
+        }
+
+        .hero-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections */
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-alt {
+            background: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-subtitle {
+            color: var(--accent-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-color), #4299e1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .credentials {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+        }
+
+        .credentials h4 {
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .credentials ul {
+            list-style: none;
+        }
+
+        .credentials li {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .credentials li::before {
+            content: '•';
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--accent-color), #4299e1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Literature Info */
+        .literature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .literature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .literature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .literature-card h3 {
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .literature-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-form h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+        }
+
+        .submit-btn {
+            background: var(--accent-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-shadow: var(--shadow);
+        }
+
+        .submit-btn:hover {
+            background: #2c5282;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-info {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem;
+            border-radius: 16px;
+            height: fit-content;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item .icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-details p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer p {
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .contact-btn {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(49, 130, 206, 0.2);
+            z-index: 9999;
+        }
+
+        .scroll-progress {
+            height: 100%;
+            background: var(--accent-color);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-indicator">
+        <div class="scroll-progress"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#inicio" class="logo serif">Literatura Pro</a>
+            
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                <li><a href="#sobre-mi" class="nav-link">Sobre Mí</a></li>
+                <li><a href="#literatura" class="nav-link">Literatura</a></li>
+            </ul>
+
+            <a href="#contacto" class="contact-btn">
+                <i class="fas fa-phone"></i>
+                Contactar
+            </a>
+
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Clases Particulares de <span class="serif" style="color: var(--gold-accent);">Literatura</span></h1>
+                <p class="subtitle">Descubre el fascinante mundo de las letras con un profesor especializado. Mejora tu comprensión lectora, análisis crítico y expresión escrita en Buenos Aires.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Años de experiencia</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Estudiantes exitosos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Aprobación en exámenes</span>
+                    </div>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="#contacto" class="btn-primary">
+                        <i class="fas fa-calendar-check"></i>
+                        Reservar Clase
+                    </a>
+                    <a href="#servicios" class="btn-secondary">
+                        <i class="fas fa-info-circle"></i>
+                        Más Información
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="hero-card">
+                    <div class="icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Metodología Personalizada</h3>
+                    <p>Cada estudiante es único. Adapto mi enseñanza a tu ritmo de aprendizaje, objetivos académicos y estilo de comprensión para maximizar tu progreso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Mis Especialidades</div>
+                <h2 class="section-title">Servicios de Literatura</h2>
+                <p class="section-description">Ofrezco clases especializadas adaptadas a cada nivel académico y objetivo de estudio</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Análisis Literario Profundo</h3>
+                    <p>Desarrolla habilidades críticas para interpretar textos complejos, identificar recursos estilísticos y comprender contextos histórico-culturales.</p>
+                    <ul class="service-features">
+                        <li>Técnicas de análisis textual</li>
+                        <li>Interpretación simbólica</li>
+                        <li>Contexto histórico y social</li>
+                        <li>Recursos retóricos y estilísticos</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3>Escritura y Composición</h3>
+                    <p>Mejora tu expresión escrita con técnicas de redacción académica, ensayos literarios y escritura creativa personalizada.</p>
+                    <ul class="service-features">
+                        <li>Ensayos académicos</li>
+                        <li>Escritura creativa</li>
+                        <li>Técnicas narrativas</li>
+                        <li>Corrección de estilo</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Preparación Universitaria</h3>
+                    <p>Preparación intensiva para exámenes de ingreso, bachillerato y selectividad con material actualizado y práctica específica.</p>
+                    <ul class="service-features">
+                        <li>Exámenes de ingreso CBC/UBA</li>
+                        <li>Bachillerato y secundario</li>
+                        <li>Apoyo para materias universitarias</li>
+                        <li>Técnicas de estudio eficaces</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Talleres Grupales</h3>
+                    <p>Sesiones grupales que fomentan el debate literario, intercambio de ideas y desarrollo del pensamiento crítico colectivo.</p>
+                    <ul class="service-features">
+                        <li>Círculos de lectura</li>
+                        <li>Debates literarios</li>
+                        <li>Análisis grupal</li>
+                        <li>Presentaciones orales</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre-mi" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Conoce a tu profesor</div>
+                <h2 class="section-title">Experiencia y Pasión por las Letras</h2>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Profesor Especializado en Literatura</h3>
+                    <p>Con más de una década de experiencia en la enseñanza de literatura, he tenido el privilegio de guiar a cientos de estudiantes en su journey académico y personal a través del mundo de las letras.</p>
+                    
+                    <p>Mi pasión por la literatura comenzó durante mis estudios universitarios en Letras, donde descubrí que enseñar no es solo transmitir conocimiento, sino despertar la curiosidad y el amor por la lectura crítica.</p>
+
+                    <p>He desarrollado una metodología única que combina rigor académico con creatividad, adaptándome siempre al ritmo y estilo de aprendizaje de cada estudiante.</p>
+
+                    <div class="credentials">
+                        <h4>Formación y Experiencia:</h4>
+                        <ul>
+                            <li>Licenciado en Letras - Universidad de Buenos Aires</li>
+                            <li>Especialización en Literatura Argentina y Latinoamericana</li>
+                            <li>10+ años de experiencia en enseñanza privada</li>
+                            <li>500+ estudiantes preparados exitosamente</li>
+                            <li>Especialista en preparación CBC y exámenes universitarios</li>
+                            <li>Formación continua en nuevas metodologías pedagógicas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Literature Info Section -->
+    <section id="literatura" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Conocimiento Fundamental</div>
+                <h2 class="section-title">Fundamentos de Literatura</h2>
+                <p class="section-description">Conceptos esenciales que todo estudiante debe dominar</p>
+            </div>
+
+            <div class="literature-grid">
+                <div class="literature-card">
+                    <h3>¿Qué es la Literatura?</h3>
+                    <p>La literatura es el arte de la expresión verbal escrita, que abarca diferentes géneros y formas narrativas. Representa la manifestación artística del pensamiento humano a través de la palabra, reflejando culturas, épocas y visiones del mundo a lo largo de la historia.</p>
+                </div>
+
+                <div class="literature-card">
+                    <h3>Géneros Literarios Clásicos</h3>
+                    <p><strong>Épico-Narrativo:</strong> Novelas, cuentos, epopeyas<br>
+                    <strong>Lírico:</strong> Poesía, sonetos, elegías, odas<br>
+                    <strong>Dramático:</strong> Teatro, comedias, tragedias, dramas<br>
+                    <strong>Didáctico:</strong> Ensayos, tratados, textos académicos</p>
+                </div>
+
+                <div class="literature-card">
+                    <h3>Literatura Argentina Contemporánea</h3>
+                    <p>Desde los clásicos como Jorge Luis Borges, Julio Cortázar y Roberto Arlt, hasta autores contemporáneos como Ricardo Piglia, César Aira y Samanta Schweblin. Estudiamos la evolución literaria argentina y su impacto en la literatura mundial.</p>
+                </div>
+
+                <div class="literature-card">
+                    <h3>Técnicas de Análisis Literario</h3>
+                    <p>Metodologías para el análisis profundo: identificación de recursos estilísticos, análisis de personajes, estructura narrativa, simbolismo, contexto socio-histórico, intertextualidad y corrientes literarias.</p>
+                </div>
+
+                <div class="literature-card">
+                    <h3>Corrientes Literarias Principales</h3>
+                    <p>Estudiaremos movimientos como el Realismo, Modernismo, Vanguardias, Boom Latinoamericano, Postmodernismo, y las tendencias literarias actuales, comprendiendo sus características y principales exponentes.</p>
+                </div>
+
+                <div class="literature-card">
+                    <h3>Literatura Universal Esencial</h3>
+                    <p>Desde los clásicos griegos hasta la literatura contemporánea mundial. Analizamos obras fundamentales de Shakespeare, Cervantes, Kafka, García Márquez, y otros autores imprescindibles para una formación literaria completa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">¿Listo para comenzar?</div>
+                <h2 class="section-title">Contacto y Reservas</h2>
+                <p class="section-description">Solicita información sobre clases particulares y horarios disponibles</p>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-form">
+                    <h3>Solicitar Información</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo *</label>
+                            <input type="text" id="nombre" name="nombre" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico *</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Teléfono de Contacto</label>
+                            <input type="tel" id="telefono" name="telefono" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nivel">Nivel Académico</label>
+                            <select id="nivel" name="nivel" class="form-control">
+                                <option value="">Selecciona tu nivel</option>
+                                <option value="secundario">Secundario</option>
+                                <option value="cbc">CBC / Ingreso Universitario</option>
+                                <option value="universitario">Universitario</option>
+                                <option value="adultos">Educación de Adultos</option>
+                                <option value="apoyo">Apoyo Escolar</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="modalidad">Modalidad Preferida</label>
+                            <select id="modalidad" name="modalidad" class="form-control">
+                                <option value="">Selecciona modalidad</option>
+                                <option value="presencial">Presencial</option>
+                                <option value="online">Online</option>
+                                <option value="ambas">Ambas modalidades</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje y Objetivos *</label>
+                            <textarea id="mensaje" name="mensaje" class="form-control" rows="4" placeholder="Cuéntame sobre tus objetivos académicos, qué temas necesitas reforzar, fechas de exámenes, etc." required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar Consulta
+                        </button>
+                    </form>
+                </div>
+
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Teléfono</h4>
+                            <p>+54 11 4567-8901</p>
+                            <p>WhatsApp disponible</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Ubicación</h4>
+                            <p>Buenos Aires, Argentina</p>
+                            <p>Zonas: Palermo, Belgrano, Centro, Barrio Norte</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Modalidades</h4>
+                            <p>Clases Presenciales</p>
+                            <p>Clases Online (Zoom, Meet)</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Horarios</h4>
+                            <p>Lunes a Viernes: 9:00 - 20:00</p>
+                            <p>Sábados: 9:00 - 17:00</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Tarifas</h4>
+                            <p>Clase individual: Consultar</p>
+                            <p>Paquetes mensuales disponibles</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Primera Clase</h4>
+                            <p>Evaluación diagnóstica gratuita</p>
+                            <p>Plan de estudios personalizado</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Clases Particulares de Literatura - Buenos Aires. Todos los derechos reservados.</p>
+            <p>Profesor Especializado | Preparación Universitaria | CBC | Análisis Literario | Buenos Aires, Argentina</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Progress Bar
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.scroll-progress').style.width = scrolled + '%';
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.service-card, .literature-card, .about-text, .contact-form').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease-out';
+            observer.observe(el);
+        });
+
+        // Enhanced form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            submitBtn.disabled = true;
+            submitBtn.style.background = '#4299e1';
+            
+            // Simulate form submission
+            setTimeout(() => {
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> ¡Mensaje Enviado!';
+                submitBtn.style.background = '#48bb78';
+                
+                // Show success message
+                const successMessage = document.createElement('div');
+                successMessage.innerHTML = `
+                    <div style="background: #f0fff4; border: 1px solid #9ae6b4; color: #276749; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <i class="fas fa-check-circle"></i> Tu consulta ha sido enviada correctamente. Te contactaré en las próximas 24 horas.
+                    </div>
+                `;
+                this.appendChild(successMessage);
+                
+                // Reset form after delay
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.background = '';
+                    this.reset();
+                    if (successMessage) successMessage.remove();
+                }, 3000);
+            }, 2000);
+        });
+
+        // Add hover effects to service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-12px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Stats counter animation
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current) + (target === 98 ? '%' : target === 500 ? '+' : '+');
+            }, 40);
+        }
+
+        // Trigger stats animation when in view
+        const statsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach((stat, index) => {
+                        const targets = [10, 500, 98];
+                        setTimeout(() => {
+                            animateCounter(stat, targets[index]);
+                        }, index * 200);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('.hero-stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Add parallax effect to hero
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
